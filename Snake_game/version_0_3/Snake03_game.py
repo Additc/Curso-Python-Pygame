@@ -2,13 +2,20 @@
 Nombre: Addi Toro Chávez
 fecha:
 versión: 0.2
+-Se agregó la configuración en el módulo de Configurations.py que va a
+incluir todas las configuraciones del juego.
+-Se agregó el módulo Game_funcionalities.py que contiene los eventos del juego
+y los elementos del juego
+visuales del juego.
 """
 
 
 #Se importan lo módulos para el videojuego
 import pygame
 from Configuration import Configurations
-
+from Game_funtionalities import game_events
+from Game_funtionalities import screen_refresh
+from Snake import  SnakeBlock
 
 
 def run_game()->None:
@@ -20,29 +27,24 @@ def run_game()->None:
     pygame.init()
 
     #Se inicializa la pantalla
-    #screen_size=(1280,720)   # Resolución de la pantalla (ancho,alto)
     screen=pygame.display.set_mode(Configurations.get_screen_size())
 
     #Se configura el título del juego
-    #game_title="Snake game"
     pygame.display.set_caption(Configurations.get_game_title())  #Mostrar título
+
+    #Se crea el bloque inicial de la serpiente (cabeza)
+    snake_head=SnakeBlock()
 
     #Ciclo principal del videojuego
     game_over=False
 
     while not game_over:
         #Se verifican los eventos (teclado,ratón) del juego.
-        for event in pygame.event.get():
-            #Un clic en cerrar el juego
-            if event.type == pygame.QUIT:
-                game_over=True
+        game_over=game_events()
 
         #Se dibujan los elementos gráficos en la pantalla
-        #background=(20,30,50)  #Fondo de la pantlla en formato RGB
-        screen.fill(Configurations.get_background())
+        screen_refresh(screen,snake_head)
 
-        #Se actualiza la pantalla
-        pygame.display.flip()
     #Se cierran los recursos de pygame
     pygame.quit()
 
