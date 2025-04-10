@@ -18,7 +18,7 @@ def game_events()->bool:
     #Se regresa la bandera
     return game_over
 
-def screen_refresh(screen: pygame.surface.Surface,snake_head:SnakeBlock)->None:
+def screen_refresh(screen: pygame.surface.Surface,clock:pygame.time.Clock,snake_head:SnakeBlock)->None:
     """
     Función que administra los elementos visuales del juego.
     :return:
@@ -31,3 +31,6 @@ def screen_refresh(screen: pygame.surface.Surface,snake_head:SnakeBlock)->None:
 
     #Se actuliza la pantalla
     pygame.display.flip()
+
+    #Se controla velocidad de pantalla de FPS del juego
+    clock.tick(Configurations.get_fps())
