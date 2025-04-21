@@ -1,7 +1,7 @@
 """
 Nombre: Addi Toro Chávez
 fecha:
-versión: 0.2
+versión: 0.3
 -Se agregó la configuración en el módulo de Configurations.py que va a
 incluir todas las configuraciones del juego.
 -Se agregó el módulo Game_funcionalities.py que contiene los eventos del juego
