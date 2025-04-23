@@ -51,7 +51,6 @@ class SnakeBlock(Sprite):
     def get_is_moving_right(cls)->bool:
         """
         Getter para la bandera _is_moving_right
-        :return:
         """
         return cls._is_moving_right
 
@@ -59,7 +58,6 @@ class SnakeBlock(Sprite):
     def set_is_moving_right(cls,value:bool) ->None:
         """
         Setter para la bandera _is_moving_right
-        :return:
         """
         cls._is_moving_right = value
 
@@ -67,7 +65,6 @@ class SnakeBlock(Sprite):
     def get_is_moving_left(cls)->bool:
         """
         Getter para la bandera _is_moving_left
-        :return:
         """
         return cls._is_moving_left
 
@@ -75,7 +72,6 @@ class SnakeBlock(Sprite):
     def set_is_moving_left(cls,value:bool) ->None:
         """
         Setter para la bandera _is_moving_left
-        :return:
         """
         cls._is_moving_left = value
 
@@ -83,7 +79,6 @@ class SnakeBlock(Sprite):
     def get_is_moving_up(cls)->bool:
         """
         Getter para la bandera _is_moving_up
-        :return:
         """
         return cls._is_moving_up
 
@@ -91,7 +86,6 @@ class SnakeBlock(Sprite):
     def set_is_moving_up(cls,value:bool) ->None:
         """
         Setter para la bandera _is_moving_up
-        :return:
         """
         cls._is_moving_up = value
 
@@ -99,7 +93,6 @@ class SnakeBlock(Sprite):
     def get_is_moving_down(cls)->bool:
         """
         Getter para la bandera _is_moving_down
-        :return:
         """
         return cls._is_moving_down
 
@@ -107,6 +100,5 @@ class SnakeBlock(Sprite):
     def set_is_moving_down(cls,value:bool) ->None:
         """
         Setter para la bandera _is_moving_down
-        :return:
         """
         cls._is_moving_down = value

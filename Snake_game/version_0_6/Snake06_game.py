@@ -44,19 +44,24 @@ def run_game()->None:
 
     #Se crea el bloque inicial de la manzana
     apple=Apple()
+    apple.random_position()
+
+    #Se crea un grupo con las manzana
+    apples = Group()
+    apples.add(apple)
 
     #Ciclo principal del videojuego
     game_over=False
 
     while not game_over:
         #Se verifican los eventos (teclado,ratón) del juego.
-        game_over=game_events(snake_body)
+        game_over=game_events(snake_body,apples)
 
         #Se administra el movimiento de la serpiente
         snake_movement(snake_body)
 
         #Se dibujan los elementos gráficos en la pantalla
-        screen_refresh(screen, clock,snake_body,apple)
+        screen_refresh(screen, clock,snake_body,apples)
 
     #Se cierran los recursos de pygame
     pygame.quit()

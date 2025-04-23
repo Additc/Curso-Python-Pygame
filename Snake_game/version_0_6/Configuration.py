@@ -14,7 +14,7 @@ class Configurations:
     _snake_body_color=(0,255,0)    #Color del cuerpo de la serpiente
 
     #Configuraciones de la manzana
-    _apple_block_size=(50,50)
+    _apple_block_size=_snake_block_size
     _apple_color=(255,0,0)
 
     @classmethod
@@ -74,7 +74,7 @@ class Configurations:
         return cls._snake_body_color
 
     @classmethod
-    def get_apple_block_size(cls) ->tuple[int,int]:
+    def get_apple_block_size(cls) ->int:
         """
         Getter para background.
         :return:
