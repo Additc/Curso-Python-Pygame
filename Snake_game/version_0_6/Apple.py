@@ -6,8 +6,8 @@ class Apple(Sprite):
     def __init__(self):
         super().__init__()
 
-        self.image=pygame.Surface((50,50))
-        self.image.fill((255,0,0))
+        self.image=pygame.Surface(Configurations.get_apple_block_size())
+        self.image.fill(Configurations.get_apple_color())
 
         self.rect=self.image.get_rect()
 
