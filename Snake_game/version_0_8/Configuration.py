@@ -7,6 +7,7 @@ class Configurations:
     _game_title = "Snake game"   #Título del juego
     _background = (20, 30, 50)  # Fondo de la pantlla en formato RGB
     _fps=8
+    _game_over_screen_time=4
 
     #Configuraciones de la serpiente
     _snake_block_size=80         #Tamaño del bloque de la serpiente
@@ -16,6 +17,7 @@ class Configurations:
     #Configuraciones de la manzana
     _apple_block_size=_snake_block_size
     _apple_color=(255,0,0)
+
 
     @classmethod
     def get_screen_size(cls)->tuple[int,int]:
@@ -48,6 +50,14 @@ class Configurations:
         :return:
         """
         return cls._fps
+
+    @classmethod
+    def get_game_over_screen_time(cls) -> int:
+        """
+        Getter para game_over_screen_time.
+        :return:
+        """
+        return cls._game_over_screen_time
 
     @classmethod
     def get_snake_block_size(cls)->int:
