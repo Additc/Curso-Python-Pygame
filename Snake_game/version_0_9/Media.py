@@ -27,22 +27,3 @@ class Background:
 
 
 
-class Applee:
-    """
-    Contiene la imagen de la manzana.
-    """
-
-    def __init__(self):
-        apple_image="../image/apple1.jpg"
-        self.image=pygame.image.load(apple_image)
-
-        apple_new=Configurations.get_apple_block_size()
-        self.image = pygame.transform.scale(self.image,apple_new)
-        self.rect = self.image.get_rect()
-
-    def blit_apple(self,screen:pygame.surface.Surface):
-        """
-        Se utiliza para dibujar la manzana.
-        :return:
-        """
-        screen.blit(self.image, self.rect)

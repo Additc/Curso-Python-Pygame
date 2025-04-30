@@ -7,7 +7,7 @@ class Configurations:
     _game_title = "Snake game"   #Título del juego
     #_background = (20, 30, 50)  # Fondo de la pantlla en formato RGB
     _fps=8
-    _game_over_screen_time=4
+    _game_over_screen_time=1
 
     #Configuraciones de la serpiente
     _snake_block_size=80         #Tamaño del bloque de la serpiente
@@ -16,11 +16,15 @@ class Configurations:
 
     #Configuraciones de la manzana
     _apple_block_size=_snake_block_size
-    _apple_color=(255,0,0)
+    #_apple_color=(255,0,0)
 
     #Las rutas de los archivos multimendia
     _background_image_path = "../media/background_image.jpg"
-
+    _apple_image_path="../media/apple1.png"
+    _snake_head_image_path="../media/head1.png"
+    _snake_body_image_path= ["../media/body1.png",
+                        "../media/body2.png",
+                        "../media/body3.png"]
 
     @classmethod
     def get_screen_size(cls)->tuple[int,int]:
@@ -102,3 +106,28 @@ class Configurations:
         :return:
         """
         return cls._background_image_path
+
+
+    @classmethod
+    def get_apple_image_path(cls)->str:
+        """
+        Getter para background_image_path.
+        :return:
+        """
+        return cls._apple_image_path
+
+    @classmethod
+    def get_snake_head_image_path(cls)->str:
+        """
+        Getter para background_image_path.
+        :return:
+        """
+        return cls._snake_head_image_path
+
+    @classmethod
+    def get_snake_body_image_path(cls)->list:
+        """
+        Getter para background_image_path.
+        :return:
+        """
+        return cls._snake_body_image_path

@@ -5,7 +5,6 @@ versión: 0.9
 Se agregaron los colisiones del juego.
 """
 
-
 #Se importan lo módulos para el videojuego
 import pygame
 from Configuration import Configurations
@@ -13,10 +12,8 @@ from Game_funtionalities import game_events,screen_refresh,snake_movement,check_
 from Snake import  SnakeBlock
 from pygame.sprite import Group
 from Apple import Apple
-from Media import Background,Applee
+from Media import Background
 
-
-from Snake_game.version_0_6.Apple import Apple
 
 
 def run_game()->None:
@@ -46,8 +43,7 @@ def run_game()->None:
 
     #Se crea el bloque inicial de la manzana
     apple=Apple()
-    apple.random_position()
-    apple_new=Applee()
+    apple.random_position(snake_body)
 
     #Se crea un grupo con las manzana
     apples = Group()
@@ -75,7 +71,7 @@ def run_game()->None:
 
 
         #Se dibujan los elementos gráficos en la pantalla
-        screen_refresh(screen, clock,snake_body,apples,background,apple_new)
+        screen_refresh(screen, clock,snake_body,apples,background)
 
 
         #Si ah perdido el jugador se llama a la pantalla de fin de juego.
