@@ -13,7 +13,7 @@ from Game_funtionalities import game_events,screen_refresh,snake_movement,check_
 from Snake import  SnakeBlock
 from pygame.sprite import Group
 from Apple import Apple
-from Media import Background
+from Media import Background,Applee
 
 
 from Snake_game.version_0_6.Apple import Apple
@@ -47,6 +47,7 @@ def run_game()->None:
     #Se crea el bloque inicial de la manzana
     apple=Apple()
     apple.random_position()
+    apple_new=Applee()
 
     #Se crea un grupo con las manzana
     apples = Group()
@@ -70,11 +71,11 @@ def run_game()->None:
         snake_movement(snake_body)
 
         #Se revisan las colisiones en el juego
-        game_over=check_collision(screen,snake_body,apples)
+        game_over=check_collision(screen,snake_body,apples) 
 
 
         #Se dibujan los elementos gráficos en la pantalla
-        screen_refresh(screen, clock,snake_body,apples,background)
+        screen_refresh(screen, clock,snake_body,apples,background,apple_new)
 
 
         #Si ah perdido el jugador se llama a la pantalla de fin de juego.
