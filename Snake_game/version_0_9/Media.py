@@ -42,7 +42,7 @@ class Applee:
 
     def blit_apple(self,screen:pygame.surface.Surface):
         """
-        Se utiliza para dibujar la manzana
+        Se utiliza para dibujar la manzana.
         :return:
         """
         screen.blit(self.image, self.rect)

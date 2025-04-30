@@ -52,7 +52,7 @@ class Apple(Sprite):
     @classmethod
     def get_no_apples(cls)->int:
         """
-        Getter de número de manzanas
+        Getter de número de manzanas.
         :return:
         """
         return cls._no_apples

@@ -8,7 +8,7 @@ from Media import Background,Applee
 
 def game_events()->bool:
     """
-    Función que administra los evento de juego
+    Función que administra los eventos de juego
     :return: la bandera del fin del juego
     """
     game_over=False

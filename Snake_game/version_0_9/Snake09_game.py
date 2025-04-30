@@ -1,8 +1,8 @@
 """
 Nombre: Addi Toro Chávez
 fecha: 22 de abril del 2025
-versión: 0.8
--Se agregaron los colisiones del juego.
+versión: 0.9
+Se agregaron los colisiones del juego.
 """
 
 
