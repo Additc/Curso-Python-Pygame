@@ -8,6 +8,7 @@ class Configurations:
     #_background = (20, 30, 50)  # Fondo de la pantlla en formato RGB
     _fps=8
     _game_over_screen_time=1
+    _time_to_refresh = 200
 
     #Configuraciones de la serpiente
     _snake_block_size=80         #Tamaño del bloque de la serpiente
@@ -21,11 +22,11 @@ class Configurations:
     #Las rutas de los archivos multimendia
     _background_image_path = "../media/background_image.jpg"
     _apple_images_path=["../media/apple1.png",
-                        "../media/apple2.png"
-                        "../media/apple3.png"
+                        "../media/apple2.png",
+                        "../media/apple3.png",
                         "../media/apple4.png"]
-    _snake_head_image_path="../media/head1.png"
-    _snake_body_image_path= ["../media/body1.png",
+    _snake_head_image_path = "../media/head1.png"
+    _snake_body_image_path = ["../media/body1.png",
                         "../media/body2.png",
                         "../media/body3.png"]
 
@@ -134,3 +135,11 @@ class Configurations:
         :return:
         """
         return cls._snake_body_image_path
+
+    @classmethod
+    def get_time_to_refresh(cls)->int:
+        """
+        Getter para background_image_path.
+        :return:
+        """
+        return cls._time_to_refresh
