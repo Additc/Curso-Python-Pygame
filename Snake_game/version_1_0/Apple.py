@@ -70,7 +70,7 @@ class Apple(Sprite):
     def animate_apple(self)->None:
         """
         Se utiliza para actualizar el frame de la manzana,
-        dando la impresión de movimiento
+        dando la impresión de movimiento.
         """
         current_time = pygame.time.get_ticks()
         time_to_refresh =Configurations.get_time_to_refresh()

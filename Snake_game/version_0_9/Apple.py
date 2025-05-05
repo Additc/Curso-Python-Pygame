@@ -33,7 +33,7 @@ class Apple(Sprite):
     def random_position(self,sanke_body:pygame.sprite.Group)->None:
         """
         Se utiliza para inicializar una ubicación aleatoria de una manzana y verificar que no se sobreponga sobre el
-        cuerpo de la serpiente.
+        cuerpo de la serpiente..
         """
         repeat = True
         while repeat:

@@ -1,6 +1,6 @@
 class Configurations:
     """
-    Clase que contiene todas las configuraciones del juego
+    Clase que contiene todas las configuraciones del juego.
     """
     #Configuraciones de la pantalla
     _screen_size = (1280, 720)  # Resolución de la pantalla (ancho,alto)

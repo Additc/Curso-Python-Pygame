@@ -2,7 +2,7 @@
 Nombre: Addi Toro Chávez
 fecha: 22 de abril del 2025
 versión: 0.9
-Se agregaron los colisiones del juego.
+Se agregaron los colisiones del juego..
 """
 
 #Se importan lo módulos para el videojuego

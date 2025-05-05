@@ -14,7 +14,7 @@ class SnakeBlock(Sprite):
 
     def __init__(self,is_head:bool=False):
         """
-        Constructor de clase
+        Constructor de clase.
         """
         super().__init__() #Se llama al constructor de la clase padre
 

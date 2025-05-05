@@ -151,7 +151,7 @@ def screen_refresh(screen: pygame.surface.Surface,
 
     snake_body.sprites()[0].animate_head()
 
-    #Se anima el movimiento de la manzana
+    #Se anima el movimiento de la manzana.
     apples.sprites()[0].animate_apple()
 
     #Se dibuja la manzana

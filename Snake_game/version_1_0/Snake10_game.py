@@ -18,7 +18,7 @@ from Media import Background
 
 def run_game()->None:
     """
-    Función principal del videojuego
+    Función principal del videojuego.
     :return:
     """
     #Se inicializa el módulo de pygame
