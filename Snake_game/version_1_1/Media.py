@@ -25,6 +25,18 @@ class Background:
         """
         screen.blit(self.image,self.rect)
 
+class Audio:
+    def __init__(self):
+
+        #Se cargan los sonidos del juego
+        self._start_sound = pygame.mixer.Sound("../media/start_sound.wav")
+        self._eats_apple_sound= pygame.mixer.Sound("../media/eats_apple_sound.wav")
+        self._game_over_sound= pygame.mixer.Sound("../media/game_over_sound.wav")
+
+    @classmethod
+    def play_music(cls,volumen):
+        pygame.mixer.music.play(loops=-1)
+        pygame.mixer.music.set_volume(volumen)
 
 
 
