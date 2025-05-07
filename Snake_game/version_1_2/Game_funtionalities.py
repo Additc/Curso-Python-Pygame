@@ -4,7 +4,8 @@ import pygame
 from Configuration import Configurations
 from Snake import SnakeBlock
 from Apple import Apple
-from Media import Background, Audio
+from Media import Background, Audio,Scoreboard,GameOverImage
+
 
 def game_events()->bool:
     """
@@ -79,7 +80,8 @@ def snake_movement(snake_body:pygame.sprite.Group)->None:
 def check_collision(screen: pygame.surface.Surface,
                     snake_body:pygame.sprite.Group,
                     apples:pygame.sprite.Group,
-                    audio:Audio)->bool:
+                    audio:Audio,
+                    scoreboard:Scoreboard)->bool:
     """
     Función que revisa las colisiones del juego:
     *Cabeza de la serpiente con el cuerpo.
@@ -128,6 +130,8 @@ def check_collision(screen: pygame.surface.Surface,
         new_apple.random_position(snake_body)
         apples.add(new_apple)
 
+        scoreboard.update(Apple.get_no_apples()-1)
+
         #Se reproduce el sondio cuando la serpiente se ha comido una manzana
         audio.play_eats_apple_sound()
 
@@ -138,13 +142,16 @@ def screen_refresh(screen: pygame.surface.Surface,
                    clock:pygame.time.Clock,
                    snake_body:pygame.sprite.Group,
                    apples:pygame.sprite.Group,
-                   background:Background)->None:
+                   background:Background,
+                   scoreboard:Scoreboard)->None:
     """
     Función que administra los elementos visuales del juego.
     :return:
     """
     # Se dibuja el fondo de la pantalla en formato RGB
     background.blit(screen)
+
+    scoreboard.blit(screen)
 
     #screen.fill(Configurations.get_background())
 
@@ -165,6 +172,7 @@ def screen_refresh(screen: pygame.surface.Surface,
     #Se actuliza la pantalla
     pygame.display.flip()
 
+
     #Se controla velocidad de pantalla de FPS del juego
     clock.tick(Configurations.get_fps())
 
@@ -178,3 +186,7 @@ def game_over_screen(audio:Audio)->None:
     audio.play_game_over_sound()
 
     time.sleep(Configurations.get_game_over_screen_time())
+
+    game_over_image = GameOverImage()
+    game_over_image.blit(screen)
+    pygame.display.flip()

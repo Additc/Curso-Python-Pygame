@@ -69,3 +69,43 @@ class Audio:
         """
         self._game_over_sound.play()
 
+
+class Scoreboard:
+    def __init__(self):
+        self._typeface="kimono"
+        self._font_size=40
+        self._font_color=(171,250,10)
+
+        #Se agrega la imagen con el score
+        self._font=pygame.font.SysFont(self._typeface,self._font_size)
+        self.image=self._font.render("puntos:0",True,self._font_color)
+
+        self.rect=self.image.get_rect()
+
+        #Se ajusta la pocisión del marcador
+        self.rect.x=int(Configurations.get_screen_size()[0]*0.05)
+        self.rect.y=int(Configurations.get_screen_size()[1]*0.05)
+
+    def update(self,new_score:int)->None:
+        text="puntos:"+str(new_score)
+        self.image=self._font.render(text,True,self._font_color)
+
+
+    def blit(self,screen:pygame.surface.Surface):
+        """
+        Se utiliza para dibujar el fondo de pantalla
+        :param screen:
+        :return:
+        """
+        screen.blit(self.image,self.rect)
+
+
+class GameOverImage:
+    def __init__(self):
+        self.image = pygame.image.load("../media/game_over_image.png")
+        self.rect = self.image.get_rect()
+
+    def blit(self,screen:pygame.surface.Surface)->None:
+        self.rect.centerx = screen.get_rect().centerx
+        self.rect.bottom = screen.get_rect().bottom-Configurations.get_snake_block_size()
+        self.blit(self.image,self.rect)

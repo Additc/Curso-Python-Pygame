@@ -7,11 +7,11 @@ class Configurations:
     _game_title = "Snake game"   #Título del juego
     #_background = (20, 30, 50)  # Fondo de la pantlla en formato RGB
     _fps=8
-    _game_over_screen_time=1
+    _game_over_screen_time=4
     _time_to_refresh = 200
 
     #Configuraciones de la serpiente
-    _snake_block_size=80         #Tamaño del bloque de la serpiente
+    _snake_block_size=40         #Tamaño del bloque de la serpiente
     _snake_head_color=(255,255,255)   #Color de la cabeza de la serpiente
     _snake_body_color=(0,255,0)    #Color del cuerpo de la serpiente
 
