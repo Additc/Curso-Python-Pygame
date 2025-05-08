@@ -51,7 +51,7 @@ class Apple(Sprite):
         """
         repeat = True
         while repeat:
-            #Se genera la pocisión aleatoria
+            #Se genera la pocisión aleatoria.
             screen_width=Configurations.get_screen_size()[0]
             screen_height=Configurations.get_screen_size()[1]
             apple_block_size=Configurations.get_apple_block_size()
