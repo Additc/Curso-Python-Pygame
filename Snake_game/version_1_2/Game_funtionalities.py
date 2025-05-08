@@ -176,7 +176,7 @@ def screen_refresh(screen: pygame.surface.Surface,
     #Se controla velocidad de pantalla de FPS del juego
     clock.tick(Configurations.get_fps())
 
-def game_over_screen(audio:Audio)->None:
+def game_over_screen(audio:Audio,screen:pygame.surface.Surface)->None:
     """
     Función con la parte del fin de juego.
     """
@@ -185,8 +185,8 @@ def game_over_screen(audio:Audio)->None:
     audio.music_fadeout(time=Configurations.get_music_fadeout_time())
     audio.play_game_over_sound()
 
-    time.sleep(Configurations.get_game_over_screen_time())
-
     game_over_image = GameOverImage()
     game_over_image.blit(screen)
     pygame.display.flip()
+
+    time.sleep(Configurations.get_game_over_screen_time())

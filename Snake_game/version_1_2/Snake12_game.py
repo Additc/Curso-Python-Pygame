@@ -1,8 +1,8 @@
 """
 Nombre: Addi Toro Chávez
 fecha: 22 de abril del 2025
-versión: 0.9
-Se agregaron los colisiones del juego..
+versión: 11
+Se agregaron los colisiones del juego.
 """
 
 #Se importan lo módulos para el videojuego
@@ -85,7 +85,7 @@ def run_game()->None:
 
         #Si ah perdido el jugador se llama a la pantalla de fin de juego.
         if game_over:
-            game_over_screen(audio)
+            game_over_screen(audio,screen)
 
     #Se cierran los recursos de pygame
     pygame.quit()
