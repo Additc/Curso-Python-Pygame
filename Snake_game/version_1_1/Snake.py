@@ -16,7 +16,7 @@ class SnakeBlock(Sprite):
         """
         Constructor de clase.
         """
-        super().__init__() #Se llama al constructor de la clase padre
+        super().__init__() #Se llama al constructor de la clase padre.
 
         if is_head:
             #color = Configurations.get_snake_head_color()

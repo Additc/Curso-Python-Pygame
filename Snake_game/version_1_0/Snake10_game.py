@@ -5,7 +5,7 @@ versión: 0.9
 Se agregaron los colisiones del juego.
 """
 
-#Se importan lo módulos para el videojuego
+#Se importan lo módulos para el videojuego.
 import pygame
 from Configuration import Configurations
 from Game_funtionalities import game_events,screen_refresh,snake_movement,check_collision, game_over_screen

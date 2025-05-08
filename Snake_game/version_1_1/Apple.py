@@ -6,7 +6,7 @@ from random import randint
 
 class Apple(Sprite):
 
-    #Se crea el atributo de clase para la puntuación.
+    #Se crea el atributo de clase para la puntuación..
     _no_apples=0
 
     def __init__(self):

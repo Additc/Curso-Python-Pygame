@@ -139,7 +139,7 @@ def screen_refresh(screen: pygame.surface.Surface,
     Función que administra los elementos visuales del juego.
     :return:
     """
-    # Se dibuja el fondo de la pantalla en formato RGB
+    # Se dibuja el fondo de la pantalla en formato RGB.
     background.blit(screen)
 
     #screen.fill(Configurations.get_background())

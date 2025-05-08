@@ -133,7 +133,7 @@ class Configurations:
     @classmethod
     def get_snake_head_image_path(cls)->list:
         """
-        Getter para background_image_path.
+        Getter para background_image_path..
         :return:
         """
         return cls._snake_head_image_path

@@ -47,7 +47,7 @@ class Audio:
     def music_fadeout(cls, time):
         """
         Se utiliza para realizar un desvanecimiento de la música del juego hasta parar.
-        :param time: Tiempo de desvanecimiento de la música (en mes)
+        :param time: Tiempo de desvanecimiento de la música (en mes).
         """
         pygame.mixer.music.fadeout(time)
 

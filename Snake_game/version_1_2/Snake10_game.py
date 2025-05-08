@@ -72,7 +72,7 @@ def run_game()->None:
         if game_over:
             break
 
-        #Se administra el movimiento de la serpiente
+        #Se administra el movimiento de la serpiente.
         snake_movement(snake_body)
 
         #Se revisan las colisiones en el juego

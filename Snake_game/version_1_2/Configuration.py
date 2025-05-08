@@ -15,7 +15,7 @@ class Configurations:
     _snake_head_color=(255,255,255)   #Color de la cabeza de la serpiente
     _snake_body_color=(0,255,0)    #Color del cuerpo de la serpiente
 
-    #Configuraciones de la manzana
+    #Configuraciones de la manzana.
     _apple_block_size=_snake_block_size
     #_apple_color=(255,0,0)
 

@@ -6,7 +6,7 @@ from random import randint,choice
 
 class SnakeBlock(Sprite):
 
-    #Atributos de clase (Banderas de movimiento d ela serpiente).
+    #Atributos de clase (Banderas de movimiento d ela serpiente)..
     _is_moving_right=False
     _is_moving_left=False
     _is_moving_up=False

@@ -76,13 +76,13 @@ class Scoreboard:
         self._font_size=40
         self._font_color=(171,250,10)
 
-        #Se agrega la imagen con el score
+        #Se agrega la imagen con el score.
         self._font=pygame.font.SysFont(self._typeface,self._font_size)
         self.image=self._font.render("puntos:0",True,self._font_color)
 
         self.rect=self.image.get_rect()
 
-        #Se ajusta la pocisión del marcador
+        #Se ajusta la pocisión del marcador.
         self.rect.x=int(Configurations.get_screen_size()[0]*0.05)
         self.rect.y=int(Configurations.get_screen_size()[1]*0.05)
 

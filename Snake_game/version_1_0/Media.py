@@ -18,7 +18,7 @@ class Background:
 
     def blit(self,screen:pygame.surface.Surface):
         """
-        Se utiliza para dibujar el fondo de pantalla
+        Se utiliza para dibujar el fondo de pantalla.
         :param screen:
         :return:
         """

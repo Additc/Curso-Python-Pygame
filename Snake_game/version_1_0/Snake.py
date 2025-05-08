@@ -56,7 +56,7 @@ class SnakeBlock(Sprite):
     def blit(self,screen:pygame.surface.Surface)->None:
         """
         Se utiliza para dibujar el bloque de la serpiente
-        :param screen:  Pantalla en donde se dibuja
+        :param screen:  Pantalla en donde se dibuja.
         :return:
         """
         angle=0

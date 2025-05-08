@@ -158,7 +158,7 @@ def screen_refresh(screen: pygame.surface.Surface,
     #Se anima el movimiento de la manzana
     apples.sprites()[0].animate_apple()
 
-    #Se dibuja la manzana
+    #Se dibuja la manzana.
     apples.draw(screen)
 
 
