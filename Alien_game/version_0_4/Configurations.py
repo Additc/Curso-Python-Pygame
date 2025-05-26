@@ -11,7 +11,7 @@ class Configurations:
 
     _background_image_path="../media/img.png"
     _soldier_image="../media/soldado.png"
-
+    _soldier_speed=10
 
     @classmethod
     def get_screen_size(cls)->tuple[int,int]:
@@ -61,3 +61,11 @@ class Configurations:
         :return:
         """
         return cls._fps
+
+    @classmethod
+    def get_soldier_speed(cls) -> int:
+        """
+        Getter para background.
+        :return:
+        """
+        return cls._soldier_speed

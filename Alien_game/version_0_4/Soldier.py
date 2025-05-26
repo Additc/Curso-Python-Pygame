@@ -22,6 +22,10 @@ class Soldier(Sprite):
         self.rect.centery = screen_rect.centery
         self.rect.left = screen_rect.left
 
+        #Se define la velocidad con la quese movera el soldado
+        self._speed=Configurations.get_soldier_speed()
+        self._rect_y = float(self.rect.y)
+
         #Banderas que indicarán si se está moviendo
         self._is_moving_up=False
         self._is_moving_down=False
@@ -34,15 +38,26 @@ class Soldier(Sprite):
         """
         screen.blit(self.image, self.rect)
 
-    def update_pocision(self)->None:
+    def update_pocision(self,screen)->None:
         """
         Verifica la pocisión del soldado.
         """
-        if (self._is_moving_up):
-            self.rect.y-=20
+        if self._is_moving_up:
+            self._rect_y-= self._speed
 
-        if (self._is_moving_down):
-            self.rect.y+=20
+        if self._is_moving_down:
+            self._rect_y+= self._speed
+
+        screen_rect=screen.get_rect()
+
+        if self._rect_y < float(screen_rect.top):
+            self._rect_y=float(screen_rect.top)
+
+        elif self._rect_y > float(screen_rect.bottom - self.image.get_height()):
+            self._rect_y= float(screen_rect.bottom - self.image.get_height())
+
+        self.rect.y = int(self._rect_y)
+
 
     @property
     def is_moving_up(self):
