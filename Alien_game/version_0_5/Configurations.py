@@ -16,8 +16,11 @@ class Configurations:
     _soldier_sheet_path="../media/soldiers.png"
     _frames_per_row=4
 
-    _soldier_size=(146,76)
+    _soldier_size=(142,76)
     _soldier_frame_delay=300
+    _soldier_shoot="../media/shot-sheet.png"
+
+    _shoot_size=(32,32)
 
     @classmethod
     def get_screen_size(cls)->tuple[int,int]:
@@ -106,3 +109,19 @@ class Configurations:
         :return:
         """
         return cls._soldier_frame_delay
+
+    @classmethod
+    def get_soldier_shoot(cls)->str:
+        """
+        Getter para soldier frame size
+        :return:
+        """
+        return cls._soldier_shoot
+
+    @classmethod
+    def get_shoot_size(cls)->tuple[int,int]:
+        """
+        Getter para soldier size.
+        :return:
+        """
+        return  cls._shoot_size

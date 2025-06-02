@@ -2,6 +2,7 @@ import pygame
 from media import Background
 from Configurations import Configurations
 from Soldier import Soldier
+from Shoot import Shoot
 
 def game_events(soldier:Soldier)->bool:
     """
@@ -31,7 +32,7 @@ def game_events(soldier:Soldier)->bool:
     return game_over
 
 def screen_refresh(screen: pygame.surface.Surface,background:Background,
-                   clock:pygame.time.Clock, soldier:Soldier)->None:
+                   clock:pygame.time.Clock, soldier:Soldier, shoot:Shoot)->None:
     """
     Función que administra los elementos visuales del juego.
     """
@@ -41,8 +42,15 @@ def screen_refresh(screen: pygame.surface.Surface,background:Background,
     #Se verifican las banderas
     soldier.update_pocision(screen)
     soldier.update_animation()
+
+    #Se anima el disparo
+    shoot.update_animation()
+
     #Se dibuja al soldado
     soldier.blit(screen)
+
+    #Se dibuja al disparo
+    shoot.blit(screen)
 
     #Se actualiza la pantalla
     pygame.display.flip()
