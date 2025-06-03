@@ -115,6 +115,7 @@ class Soldier(Sprite):
         """
         screen.blit(self.image, self.rect)
 
+
     def update_pocision(self,screen)->None:
         """
         Verifica la pocisión del soldado.

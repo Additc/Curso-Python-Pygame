@@ -41,15 +41,14 @@ def screen_refresh(screen: pygame.surface.Surface,background:Background,
 
     #Se verifican las banderas
     soldier.update_pocision(screen)
-    soldier.update_animation()
+    shoot.update_pocision(screen)
 
-    #Se anima el disparo
+    #Se anima el soldado y el disparo
+    soldier.update_animation()
     shoot.update_animation()
 
-    #Se dibuja al soldado
+    #Se dibuja al soldado y el disparo
     soldier.blit(screen)
-
-    #Se dibuja al disparo
     shoot.blit(screen)
 
     #Se actualiza la pantalla
