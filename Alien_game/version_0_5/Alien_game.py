@@ -1,7 +1,7 @@
 """
 Nombre del alumno: Addi Toro Chávez
 fecha: 13 de mayo del 2025
-versión: 0.2
+versión: 0.5
 -se crea la pantalla de inicio y se muestra con un color.
 -Se configura el título de la pantalla.
 -El único evento que se muestra es cerra la pantalla.
@@ -13,7 +13,7 @@ from Configurations import Configurations
 from Game_functionalities import game_events,screen_refresh
 from media import Background
 from Soldier import Soldier
-from Shoot import Shoot
+from Shoot import Shot
 
 def run_game()->None:
     """
@@ -33,7 +33,10 @@ def run_game()->None:
     soldier=Soldier(screen)
 
     #Se crea el disparo
-    shoot=Shoot(screen,soldier)
+    shot=Shot(screen,soldier)
+
+    #Se crea un grupo
+    shots=pygame.sprite.Group()
 
 
     background=Background()
@@ -46,10 +49,10 @@ def run_game()->None:
 
     while not game_over:
         # Se verifican los eventos (teclado, ratón) del juego.
-        game_over = game_events(soldier)
+        game_over = game_events(soldier,screen,shots)
 
         #Se dibujan los elementos gráficos en la pantalla
-        screen_refresh(screen,background,clock,soldier,shoot)
+        screen_refresh(screen,background,clock,soldier,shots)
 
     #Se cierran los recursos de pygame
     pygame.quit()

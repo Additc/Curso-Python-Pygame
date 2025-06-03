@@ -3,14 +3,13 @@ from Configurations import Configurations
 from pygame.sprite import Sprite
 
 
-class Shoot(Sprite):
+class Shot(Sprite):
     """
     Clase que contiene la animación de disparo
     """
     def __init__(self,screen,soldier):
         super().__init__()
 
-        self._soldier = soldier
 
         #Imágen y rectágulo
         shoot_image_path = Configurations.get_shoot()
@@ -76,13 +75,13 @@ class Shoot(Sprite):
         self.rect = self.image.get_rect()
 
         # Se inicializa la posición inicial, en este caso, a la derecha de la pantalla.
-        screen_rect = screen.get_rect()
-        self.rect.right = screen_rect.right
-        self.rect.centery = screen_rect.centery
+        screen_rect = soldier.rect
+        self.rect.left = screen_rect.left
+        self.rect.centery = screen_rect.centery-10
 
 
         # Se incluyen los atributos para el movimiento.
-        self._rect_y = float(self.rect.y)
+        self._rect_x = float(self.rect.x)
         self._speed = Configurations.get_soldier_speed()
 
 
@@ -135,6 +134,7 @@ class Shoot(Sprite):
             self._rect_y= float(screen_rect.bottom - self.image.get_height())
 
         self.rect.y = int(self._rect_y)
+
 
 
     @property
