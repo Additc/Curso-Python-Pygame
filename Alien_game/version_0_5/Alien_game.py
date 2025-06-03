@@ -33,7 +33,7 @@ def run_game()->None:
     soldier=Soldier(screen)
 
     #Se crea el disparo
-    shoot=Shoot(screen)
+    shoot=Shoot(screen,soldier)
 
 
     background=Background()

@@ -7,15 +7,18 @@ class Shoot(Sprite):
     """
     Clase que contiene la animación de disparo
     """
-    def __init__(self,screen):
+    def __init__(self,screen,soldier):
         super().__init__()
 
+        self._soldier = soldier
+
         #Imágen y rectágulo
-        shoot_image_path = Configurations.get_soldier_shoot()
+        shoot_image_path = Configurations.get_shoot()
         self.image = pygame.image.load(shoot_image_path)
         self.image = pygame.transform.scale(self.image, (200, 200))
 
         self.rect = self.image.get_rect()
+
 
         # Para centrar el disparo
         screen_rect = screen.get_rect()
@@ -26,12 +29,16 @@ class Shoot(Sprite):
         self._speed=Configurations.get_soldier_speed()
         self._rect_y = float(self.rect.y)
 
+        #Banderas que indicarán si se está moviendo
+        self._is_moving_up=False
+        self._is_moving_down=False
+
         # Lista que almacena los frames del disparo.
         self._frames = []
 
         """CAMBIO. Ahora se carga la hoja, en lugar de una única imagen."""
-        # Se carga la hoja que contiene los frames del soldado.
-        sheet_path = Configurations.get_soldier_shoot()
+        # Se carga la hoja que contiene los frames del disparo.
+        sheet_path = Configurations.get_shoot()
         soldier_sheet = pygame.image.load(sheet_path)
 
         sheet_frames_per_row = Configurations.get_frames_per_row()
@@ -68,10 +75,16 @@ class Shoot(Sprite):
         # Se obtiene el rectángulo que representa la posición del sprite.
         self.rect = self.image.get_rect()
 
+        # Se inicializa la posición inicial, en este caso, a la derecha de la pantalla.
+        screen_rect = screen.get_rect()
+        self.rect.right = screen_rect.right
+        self.rect.centery = screen_rect.centery
+
 
         # Se incluyen los atributos para el movimiento.
         self._rect_y = float(self.rect.y)
         self._speed = Configurations.get_soldier_speed()
+
 
     def update_animation(self) -> None:
         """
@@ -89,13 +102,53 @@ class Shoot(Sprite):
             self._last_update_time = current_time
             self._frame_index += 1
 
-        # Finalmente, se verica si el índice ha recorrido todos los frames para volver al inicio de la lista.
-        if self._frame_index >= len(self._frames):
-            self._frame_index = 0
+            # Finalmente, se verica si el índice ha recorrido todos los frames para volver al inicio de la lista.
+            if self._frame_index >= len(self._frames):
+                self._frame_index = 0
+
 
     def blit(self, screen: pygame.surface.Surface) -> None:
         """
         Se utiliza para dibujar la manzana
-            :param screen: Pantalla en donde se dibuja.
-            """
+        :param screen: Pantalla en donde se dibuja.
+        """
         screen.blit(self.image, self.rect)
+
+
+    def update_pocision(self,screen)->None:
+        """
+        Verifica la pocisión del soldado.
+        """
+        if self._is_moving_up:
+            self._rect_y-= self._speed
+
+        if self._is_moving_down:
+            self._rect_y+= self._speed
+
+        screen_rect=screen.get_rect()
+
+
+        if self._rect_y < float(screen_rect.top):
+            self._rect_y=float(screen_rect.top)
+
+        elif self._rect_y > float(screen_rect.bottom - self.image.get_height()):
+            self._rect_y= float(screen_rect.bottom - self.image.get_height())
+
+        self.rect.y = int(self._rect_y)
+
+
+    @property
+    def is_moving_up(self):
+        return self._is_moving_up
+
+    @is_moving_up.setter
+    def is_moving_up(self, valor):
+        self._is_moving_up = valor
+
+    @property
+    def is_moving_down(self):
+        return self._is_moving_down
+
+    @is_moving_down.setter
+    def is_moving_down(self, valor):
+        self._is_moving_down = valor

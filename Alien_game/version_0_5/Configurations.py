@@ -18,7 +18,7 @@ class Configurations:
 
     _soldier_size=(142,76)
     _soldier_frame_delay=300
-    _soldier_shoot="../media/shot-sheet.png"
+    _shoot="../media/shot-sheet.png"
 
     _shoot_size=(32,32)
 
@@ -111,12 +111,12 @@ class Configurations:
         return cls._soldier_frame_delay
 
     @classmethod
-    def get_soldier_shoot(cls)->str:
+    def get_shoot(cls)->str:
         """
         Getter para soldier frame size
         :return:
         """
-        return cls._soldier_shoot
+        return cls._shoot
 
     @classmethod
     def get_shoot_size(cls)->tuple[int,int]:
