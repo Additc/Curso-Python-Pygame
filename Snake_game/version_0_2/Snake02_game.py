@@ -10,7 +10,7 @@ visuales del juego.
 """
 
 
-#Se importan lo módulos para el videojuego
+#Se importan los módulos para el videojuego
 import pygame
 from Configuration import Configurations
 from Game_funtionalities import game_events
@@ -37,7 +37,7 @@ def run_game()->None:
     game_over=False
 
     while not game_over:
-        #Se verifican los eventos (teclado,ratón) del juego.
+        #Se verifican los eventos (teclado, ratón) del juego.
         game_over=game_events()
 
         #Se dibujan los elementos gráficos en la pantalla
