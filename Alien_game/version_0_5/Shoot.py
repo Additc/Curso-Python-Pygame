@@ -5,7 +5,7 @@ from pygame.sprite import Sprite
 
 class Shot(Sprite):
     """
-    Clase que contiene la animación de disparo
+    Clase que contiene la animación de disparo.
     """
     def __init__(self,screen,soldier):
         super().__init__()

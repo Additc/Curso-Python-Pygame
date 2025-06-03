@@ -48,7 +48,7 @@ def game_events(soldier:Soldier,screen: pygame.surface.Surface,shots:pygame.spri
 def screen_refresh(screen: pygame.surface.Surface,background:Background,
                    clock:pygame.time.Clock, soldier:Soldier,shots:pygame.sprite.Group)->None:
     """
-    Función que administra los elementos visuales del juego.
+    Función que administra los elementos visuales del juego
     """
     #Fondo de la pantalla
     background.blit(screen)

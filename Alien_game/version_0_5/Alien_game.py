@@ -2,9 +2,6 @@
 Nombre del alumno: Addi Toro Chávez
 fecha: 13 de mayo del 2025
 versión: 0.5
--se crea la pantalla de inicio y se muestra con un color.
--Se configura el título de la pantalla.
--El único evento que se muestra es cerra la pantalla.
 """
 
 #Se importan los módulos para el videojuego
