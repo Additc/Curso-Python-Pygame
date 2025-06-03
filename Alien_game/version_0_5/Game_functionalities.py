@@ -7,7 +7,7 @@ from Shoot import Shoot
 def game_events(soldier:Soldier)->bool:
     """
     Función que administra los eventos de juego.
-    :return: la bandera del fin del juego.
+    :return: La bandera del fin del juego.
     """
     game_over=False
 

@@ -109,7 +109,7 @@ class Shoot(Sprite):
 
     def blit(self, screen: pygame.surface.Surface) -> None:
         """
-        Se utiliza para dibujar la manzana
+        Se utiliza para dibujar el disparo.
         :param screen: Pantalla en donde se dibuja.
         """
         screen.blit(self.image, self.rect)

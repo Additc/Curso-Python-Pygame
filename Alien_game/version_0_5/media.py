@@ -20,7 +20,6 @@ class Background:
         """
         Se utiliza para dibujar el fondo de pantalla.
         :param screen:
-        :return:
         """
         screen.blit(self.image,self.rect)
 

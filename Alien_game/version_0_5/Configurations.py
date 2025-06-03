@@ -113,7 +113,7 @@ class Configurations:
     @classmethod
     def get_shoot(cls)->str:
         """
-        Getter para soldier frame size
+        Getter para soldier frame size.
         :return:
         """
         return cls._shoot

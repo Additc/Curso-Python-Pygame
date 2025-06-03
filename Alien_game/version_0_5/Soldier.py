@@ -4,7 +4,7 @@ from pygame.sprite import Sprite
 
 class Soldier(Sprite):
     """
-    Clase que contiene el fondo de pantalla.
+    Clase que contiene la animación del soldado.
     """
 
     def __init__(self, screen):
