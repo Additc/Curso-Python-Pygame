@@ -29,9 +29,6 @@ def run_game()->None:
     #Se crea al soldado
     soldier=Soldier(screen)
 
-    #Se crea el disparo
-    shot=Shot(screen,soldier)
-
     #Se crea un grupo
     shots=pygame.sprite.Group()
 
@@ -46,10 +43,10 @@ def run_game()->None:
 
     while not game_over:
         # Se verifican los eventos (teclado, ratón) del juego.
-        game_over = game_events(soldier,screen,shots)
+        game_over = game_events(soldier,shots)
 
         #Se dibujan los elementos gráficos en la pantalla
-        screen_refresh(screen,background,clock,soldier,shots)
+        screen_refresh(screen,clock,background,soldier,shots)
 
     #Se cierran los recursos de pygame
     pygame.quit()
