@@ -37,6 +37,7 @@ def game_events(soldier: Soldier, gunshots: pygame.sprite.Group) -> bool:
                 new_shot = Shot(soldier)
                 gunshots.add(new_shot)
 
+
         # Se verifica el evento de soltar una tecla.
         if event.type == pygame.KEYUP:
             # Se verifica las flechas para dejar de moverse.

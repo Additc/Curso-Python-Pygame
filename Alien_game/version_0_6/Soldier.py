@@ -10,6 +10,7 @@ class Soldier(Sprite):
     def __init__(self, screen: pygame.surface.Surface):
         super().__init__()  # Ahora está dentro del constructor
 
+
         #Imágen y rectágulo
         soldier_image_path = Configurations.get_soldier_image()
         self.image = pygame.image.load(soldier_image_path)
@@ -29,6 +30,8 @@ class Soldier(Sprite):
         #Banderas que indicarán si se está moviendo
         self._is_moving_up=False
         self._is_moving_down=False
+
+        self._is_shooting = False
 
         # Lista que almacena los frames del soldado.
         self._frames = []
@@ -55,10 +58,10 @@ class Soldier(Sprite):
 
 
         # Se recortan los sprites de la hoja, se escalan y se guardan en la lista de sprites.
-        for row in range(sheet_frames_per_row):
-            for col in range(sheet_frames_per_column):
-                x = row * soldier_frame_width
-                y = col * soldier_frame_height
+        for i in range(sheet_frames_per_column):
+            for j in range(sheet_frames_per_row):
+                x = j * soldier_frame_width
+                y = i * soldier_frame_height
                 subsurface_rect = (x, y, soldier_frame_width, soldier_frame_height)
                 frame = soldier_sheet.subsurface(subsurface_rect)
                 frame = pygame.transform.scale(frame, soldier_frame_size)
@@ -104,9 +107,17 @@ class Soldier(Sprite):
             self._frame_index += 1
 
             # Finalmente, se verica si el índice ha recorrido todos los frames para volver al inicio de la lista.
-            if self._frame_index >= len(self._frames):
+            if self._frame_index >= len(self._frames)/2:
                 self._frame_index = 0
 
+
+    def shoots(self)->None:
+        """
+        Metodo que indica el disparo.
+        """
+        self._is_shooting = True
+        self._last_update_time = current_time
+        self._frame_index += 4
 
     def blit(self, screen: pygame.surface.Surface) -> None:
         """
@@ -135,7 +146,6 @@ class Soldier(Sprite):
             self._rect_y= float(screen_rect.bottom - self.image.get_height())
 
         self.rect.y = int(self._rect_y)
-
 
 
 
