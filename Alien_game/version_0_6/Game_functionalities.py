@@ -36,6 +36,7 @@ def game_events(soldier: Soldier, gunshots: pygame.sprite.Group) -> bool:
             if event.key == pygame.K_SPACE:
                 new_shot = Shot(soldier)
                 gunshots.add(new_shot)
+                soldier.shoots()
 
 
         # Se verifica el evento de soltar una tecla.

@@ -30,8 +30,8 @@ class Soldier(Sprite):
         #Banderas que indicarán si se está moviendo
         self._is_moving_up=False
         self._is_moving_down=False
-
         self._is_shooting = False
+
 
         # Lista que almacena los frames del soldado.
         self._frames = []
@@ -90,34 +90,37 @@ class Soldier(Sprite):
         self._rect_y = float(self.rect.y)
         self._speed = Configurations.get_soldier_speed()
 
+
     def update_animation(self) -> None:
-        """
-        Se utiliza para actualizar el frame visible del soldado, dando la impresión de animación.
-        """
-        # Se verifica si el tiempo transcurrido es mayor o igual al tiempo establecido para actualizar el frame.
         current_time = pygame.time.get_ticks()
         frame_delay = Configurations.get_soldier_frame_delay()
         needs_refresh = (current_time - self._last_update_time) >= frame_delay
 
         if needs_refresh:
-            # En caso verdadero, se actualiza el frame por el siguiente en la lista.
-            # Además, se actualizan los atributos para resetear el tiempo y actualizar el índice.
-            self.image = self._frames[self._frame_index]
             self._last_update_time = current_time
-            self._frame_index += 1
 
-            # Finalmente, se verica si el índice ha recorrido todos los frames para volver al inicio de la lista.
-            if self._frame_index >= len(self._frames)/2:
-                self._frame_index = 0
+            # Si está disparando, usar frames de disparo
+            if self._is_shooting:
+                self.image = self._frames[self._frame_index]
+                self._frame_index += 1
 
+                if self._frame_index >= len(self._frames):
+                    self._frame_index = 0
+                    self._is_shooting = False  # Fin de disparo
+
+            else:
+                self.image = self._frames[self._frame_index]
+                self._frame_index += 1
+
+                if self._frame_index >= 4:
+                    self._frame_index = 0
 
     def shoots(self)->None:
         """
         Metodo que indica el disparo.
         """
         self._is_shooting = True
-        self._last_update_time = current_time
-        self._frame_index += 4
+        self._frame_index = 4
 
     def blit(self, screen: pygame.surface.Surface) -> None:
         """
