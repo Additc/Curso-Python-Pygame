@@ -98,8 +98,8 @@ class Soldier(Sprite):
 
         if needs_refresh:
             self._last_update_time = current_time
-
             # Si está disparando, usar frames de disparo
+
             if self._is_shooting:
                 self.image = self._frames[self._frame_index]
                 self._frame_index += 1
@@ -109,6 +109,7 @@ class Soldier(Sprite):
                     self._is_shooting = False  # Fin de disparo
 
             else:
+
                 self.image = self._frames[self._frame_index]
                 self._frame_index += 1
 

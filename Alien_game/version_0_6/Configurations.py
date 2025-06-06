@@ -19,7 +19,7 @@ class Configurations:
     _frames_per_column = 2
 
     _soldier_size=(142,76)
-    _soldier_frame_delay=300
+    _soldier_frame_delay=100
     _shot_sheet_path="../media/shot-sheet.png"
 
     _shot_size = (32,32)
