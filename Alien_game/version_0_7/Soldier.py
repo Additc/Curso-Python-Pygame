@@ -130,7 +130,7 @@ class Soldier(Sprite):
         screen.blit(self.image, self.rect)
 
 
-    def update_pocision(self,screen)->None:
+    def update_pocision(self,screen:pygame.surface.Surface)->None:
         """
         Verifica la pocisión del soldado.
         """
@@ -142,6 +142,7 @@ class Soldier(Sprite):
 
         screen_rect=screen.get_rect()
 
+        #verifica que no se sobrepase de la pantalla
         if self._rect_y < float(screen_rect.top):
             self._rect_y=float(screen_rect.top)
 

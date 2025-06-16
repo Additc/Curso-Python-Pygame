@@ -55,7 +55,7 @@ def screen_refresh(screen: pygame.surface.Surface,
                    background: Background,
                    soldier: Soldier,
                    gunshots: pygame.sprite.Group,
-                   alien:Alien) -> None:
+                   aliens:pygame.sprite.Group) -> None:
     """
     Función que administra los elementos de la pantalla.
     :param screen: Objeto con la pantalla.
@@ -80,9 +80,10 @@ def screen_refresh(screen: pygame.surface.Surface,
         shot.blit(screen)
 
     #Se actualizan las posiciones, se animan y se dibujan los sprites del grupo de aliens
-    alien.update_position()
-    alien.update_animation()
-    alien.blit(screen)
+    for alien in aliens.sprites():
+        alien.update_position(screen)
+        alien.update_animation()
+        alien.blit(screen)
 
 
     # Se actualiza la pantalla, dando la impresión de movimiento.

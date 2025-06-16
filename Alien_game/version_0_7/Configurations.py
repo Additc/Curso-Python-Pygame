@@ -33,9 +33,9 @@ class Configurations:
     _shot_speed = 32.5
 
     #Sprites de enemigos
-    _alien1_sheet_path = "../media/alien1.png"
-    _alien2_sheet_path = "../media/alien2.png"
-    _alien_speed = 5.5
+    _aliens_random =["../media/alien1.png","../media/alien2.png","../media/alien3.png","../media/alien4.png"]
+    _alien_speed_x= 2
+    _alien_speed_y= 3
     _alien_frame_delay = 100
 
     @classmethod
@@ -184,25 +184,25 @@ class Configurations:
         return cls._shot_sheet_path
 
     @classmethod
-    def get_alien1_sheet_path(cls) -> str:
+    def get_aliens_random(cls) -> list:
         """
         Getter para _alien1
         """
-        return cls._alien1_sheet_path
+        return cls._aliens_random
 
     @classmethod
-    def get_alien2_sheet_path(cls) -> str:
-        """
-        Getter para _alien2
-        """
-        return cls._alien2_sheet_path
-
-    @classmethod
-    def get_alien_speed(cls) -> float:
+    def get_alien_speed_x(cls) -> float:
         """
         Getter para _soldier_speed.
         """
-        return cls._alien_speed
+        return cls._alien_speed_x
+
+    @classmethod
+    def get_alien_speed_y(cls) -> float:
+        """
+        Getter para _soldier_speed.
+        """
+        return cls._alien_speed_y
 
     @classmethod
     def get_alien_frame_delay(cls) -> int:

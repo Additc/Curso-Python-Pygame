@@ -1,5 +1,4 @@
-from random import randint
-
+from random import  choice, uniform
 import pygame
 from Configurations import Configurations
 from pygame.sprite import Sprite
@@ -13,13 +12,18 @@ class Alien(Sprite):
     def __init__(self, screen):
         super().__init__()  # Ahora está dentro del constructor
 
+        #Banderas que indicarán si se está moviendo
+        movement = [True, False]
+        self._is_moving_up= choice(movement)
+        self._is_moving_down= not self._is_moving_up
+
         # Lista que almacena los frames del alien.
         self._frames = []
 
 
         """CAMBIO. Ahora se carga la hoja, en lugar de una única imagen."""
         # Se carga la hoja que contiene los frames de lod aliens.
-        sheet_path = random.choice([Configurations.get_alien1_sheet_path(),Configurations.get_alien2_sheet_path()])
+        sheet_path = random.choice(Configurations._aliens_random)
         alien_sheet = pygame.image.load(sheet_path)
 
 
@@ -63,21 +67,47 @@ class Alien(Sprite):
         # Se inicializa la posición inicial, en este caso, a la derecha de la pantalla.
         screen_rect = screen.get_rect()
         self.rect.left = screen_rect.left
+        self.rect.centery = screen_rect.centery
 
         # Se incluyen los atributos para el movimiento.
         self._rect_x = float(self.rect.x)
-        self._speed = Configurations.get_alien_speed()
+        self._rect_y = float(self.rect.y)
+        self._speed_x = Configurations.get_alien_speed_x()*uniform(.8,1.2)
+        self._speed_y = Configurations.get_alien_speed_y()*uniform(.6,1.4)
 
 
-    def update_position(self) -> None:
+    def update_position(self,screen) -> None:
         """
         Se utiliza para actualizar la posición del soldado de acuerdo a las banderas de movimiento.
         """
         # Se actualiza la posición del valor flotante de la posición.
-        self._rect_x += self._speed
+        self._rect_x += self._speed_x
 
         # Se actualiza la posición del rectángulo de acuerdo a la posición.
         self.rect.x = int(self._rect_x)
+
+        if self._is_moving_up:
+            self._rect_y -= self._speed_y
+
+        if self._is_moving_down:
+            self._rect_y += self._speed_y
+
+        screen_rect = screen.get_rect()
+
+        # verifica que no se sobrepase de la pantalla
+        if self._rect_y < float(screen_rect.top):
+            self._rect_y = float(screen_rect.top)
+            self._is_moving_down = True
+            self._is_moving_up = False
+
+        elif self._rect_y > float(screen_rect.bottom - self.image.get_height()):
+            self._rect_y = float(screen_rect.bottom - self.image.get_height())
+            self._is_moving_down = False
+            self._is_moving_up = True
+
+
+        #se actualiza la pocisión del rectángulo
+        self.rect.y = int(self._rect_y)
 
 
 
