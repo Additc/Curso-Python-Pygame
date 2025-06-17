@@ -12,6 +12,7 @@ from media import Background
 from Soldier import Soldier
 from Shoot import Shot
 from Alien import Alien
+from random import randint
 
 def run_game()->None:
     """
@@ -30,17 +31,14 @@ def run_game()->None:
     #Se crea al soldado
     soldier=Soldier(screen)
 
-    #Se crea un enemigo
-    alien1=Alien(screen)
-    alien2 = Alien(screen)
-    alien3 = Alien(screen)
-    alien4 = Alien(screen)
     #Se crea un grupo de aliens.
     aliens = pygame.sprite.Group()
-    aliens.add(alien1)
-    aliens.add(alien2)
-    aliens.add(alien3)
-    aliens.add(alien4)
+    min_aliens = 5
+    aliens_to_spawn = min_aliens + randint(0,10)
+    for _ in range(aliens_to_spawn):
+        alien=Alien(screen)
+        aliens.add(alien)
+
 
     #Se crea un grupo de disparos
     shots=pygame.sprite.Group()

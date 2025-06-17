@@ -1,4 +1,4 @@
-from random import  choice, uniform
+from random import  choice, uniform,randint
 import pygame
 from Configurations import Configurations
 from pygame.sprite import Sprite
@@ -9,7 +9,7 @@ class Alien(Sprite):
     Clase que contiene el fondo de pantalla.
     """
 
-    def __init__(self, screen):
+    def __init__(self, screen:pygame.surface.Surface):
         super().__init__()  # Ahora está dentro del constructor
 
         #Banderas que indicarán si se está moviendo
@@ -66,8 +66,13 @@ class Alien(Sprite):
 
         # Se inicializa la posición inicial, en este caso, a la derecha de la pantalla.
         screen_rect = screen.get_rect()
-        self.rect.left = screen_rect.left
+
+        #self.rect.left = screen_rect.left
         self.rect.centery = screen_rect.centery
+
+        self.rect.y = alien_frame_height * randint(0, (screen.get_height()// alien_frame_height - 1))
+        self.rect.x = -alien_frame_size[0]
+
 
         # Se incluyen los atributos para el movimiento.
         self._rect_x = float(self.rect.x)

@@ -34,8 +34,8 @@ class Configurations:
 
     #Sprites de enemigos
     _aliens_random =["../media/alien1.png","../media/alien2.png","../media/alien3.png","../media/alien4.png"]
-    _alien_speed_x= 2
-    _alien_speed_y= 3
+    _alien_speed_x= 4
+    _alien_speed_y= 2
     _alien_frame_delay = 100
 
     @classmethod
