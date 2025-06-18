@@ -4,6 +4,7 @@ from media import Background
 from Soldier import Soldier
 from Shoot import Shot
 from Alien import Alien
+from random import randint
 
 
 
@@ -32,7 +33,7 @@ def game_events(soldier: Soldier, gunshots: pygame.sprite.Group) -> bool:
                 soldier.is_moving_down = True
 
             # Si se presionó el espacio, entonces se crea un nuevo disparo y se agrega al grupo.
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE and len(gunshots)<= 1:
                 new_shot = Shot(soldier)
                 gunshots.add(new_shot)
                 soldier.shoots()
@@ -48,6 +49,54 @@ def game_events(soldier: Soldier, gunshots: pygame.sprite.Group) -> bool:
 
     # Se regresa la bandera.
     return game_over
+
+
+def check_collision(screen: pygame.surface.Surface,
+                    soldier:Soldier,gunshots: pygame.sprite.Group,
+                    aliens:pygame.sprite.Group)->bool:
+    """
+    Función que revisa las colisiones del juego:
+    *Cabeza de la serpiente con el cuerpo.
+    *Cabeza de la serpiente con el borde de la pantalla.
+    *Cabeza de la serpiente con la manzana.
+    :param screen: Pantalla
+    :param snake_body: Cuerpo de la serpiente.
+    :param apples: Grupo de las manzanas.
+    :return: Las banderas de fin de juego.
+    """
+
+    #Se declara la bandera de fin de juego
+    game_over=False
+
+    #Se revisa la condición de la cabeza de la serpiente con la pantalla
+    screen_rect=screen.get_rect()
+
+    #Se revisan las colisiones con los disparos.
+    aliens_gunshots_collisions = pygame.sprite.groupcollide(gunshots,aliens,True,True)
+
+    #Remover los aliens cuando estén fuera de la pantalla
+    for alien in aliens.copy():
+        if alien.rect.left > screen_rect.right:
+            aliens.remove(alien)
+
+    #Remover los disparos cuando estén fuera de la pantalla
+    for shot in gunshots.copy():
+        if shot.rect.right < screen_rect.left:
+            gunshots.remove(shot)
+
+    soldier_alien_collisions = pygame.sprite.spritecollide(soldier,aliens,False)
+    if len(soldier_alien_collisions) >=1:
+        game_over=True
+
+    if len(aliens) <= 5:
+        aliens_to_spawn =  randint(0, 10)
+        for _ in range(aliens_to_spawn):
+            alien = Alien(screen)
+            aliens.add(alien)
+
+
+    return game_over
+
 
 
 def screen_refresh(screen: pygame.surface.Surface,

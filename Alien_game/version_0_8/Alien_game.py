@@ -3,11 +3,12 @@ Nombre del alumno: Addi Toro Chávez
 fecha: 13 de mayo del 2025
 versión: 0.8 del juego de aliens vs soldados.
 """
+from time import sleep
 
 #Se importan los módulos para el videojuego
 import pygame
 from Configurations import Configurations
-from Game_functionalities import game_events,screen_refresh
+from Game_functionalities import game_events,screen_refresh,check_collision
 from media import Background
 from Soldier import Soldier
 from Shoot import Shot
@@ -56,8 +57,15 @@ def run_game()->None:
         # Se verifican los eventos (teclado, ratón) del juego.
         game_over = game_events(soldier,shots)
 
+        if game_over:
+            break
+
+        game_over = check_collision(screen, soldier, shots, aliens)
+
         #Se dibujan los elementos gráficos en la pantalla
         screen_refresh(screen,clock,background,soldier,shots,aliens)
+        if game_over:
+            sleep(5)
 
     #Se cierran los recursos de pygame
     pygame.quit()
