@@ -65,7 +65,7 @@ def run_game()->None:
         #Se dibujan los elementos gráficos en la pantalla
         screen_refresh(screen,clock,background,soldier,shots,aliens)
         if game_over:
-            sleep(5)
+            sleep(3)
 
     #Se cierran los recursos de pygame
     pygame.quit()
